@@ -1,0 +1,131 @@
+https://www.cnblogs.com/cang12138/p/7486003.html
+
+C# 爬虫 Jumony-html解析
+阅读目录
+
+前言
+添加DLL
+Jumony的用法
+C#完整代码
+前言
+　　前几天写了个爬虫，然后认识到了自己的不足。 烽火情怀推荐了Jumony.Core，通过倚天照海- -推荐的文章，也发现了Jumony.Core。
+
+　　研究了2天，我发现这个东西简单粗暴，非常好用，因为语法比较像jQuery。上手快，也很好理解。
+
+回到顶部
+添加DLL
+　　IDE是Visual Studio 2013，我是在NugGet中搜索，并添加到项目中。
+
+　　
+
+回到顶部
+Jumony的用法
+1、从网站获取html代码，将html字符串分析为标准的文档对象模型（DOM）。
+
+IHtmlDocument source = new JumonyParser().LoadDocument("http://www.23us.so/files/article/html/13/13655/index.html", System.Text.Encoding.GetEncoding("utf-8"));
+Jumony的API可以从互联网上直接抓取文档分析，并根据HTTP头自动识别编码，但是上面的网站怎么也无法获取到html，其他网站就没问题（例如博客园、起点），后来我把源码下载下来，一步步测试，发现html是获取到的，但是乱码，导致了Jumony类库分析html文本的时候，分析的不正确。解决办法就是设置utf-8。
+
+2、获取所有的meta标签
+
+
+
+复制代码
+var aLinks = source.Find("meta");//获取所有的meta标签
+foreach (var aLink in aLinks)
+{
+    if (aLink.Attribute("name").Value() == "keywords")
+    {
+        name = aLink.Attribute("content").Value();//无疆,无疆最新章节,无疆全文阅读
+    }
+}
+复制代码
+3、获取 name=keywords 的meta标签，并得到content属性里的值
+
+string name = source.Find("meta[name=keywords]").FirstOrDefault().Attribute("content").Value();
+4、获取所有Class=L
+
+
+
+复制代码
+var lLinks = source.Find(".L");//获取所有class=L的td标签
+foreach (var lLink in lLinks)//循环class=L的td
+{ 
+　　//lLink值 例如：<td class="L"><a href="http://www.23us.so/files/article/html/13/13655/5638724.html">楔子</a></td>  
+}
+
+var aLinks = source.Find(".L a");//获取所有class=L下的a标签
+foreach (var aLink in aLinks)
+{ 　　
+　　//aLink值 <a href="http://www.23us.so/files/article/html/13/13655/5638724.html">楔子</a>
+　　string title = aLink.InnerText()//楔子 
+　　string url = aLink.Attribute("href").Value();//http://www.23us.so/files/article/html/13/13655/5638724.html
+}
+复制代码
+5、根据ID获取
+
+复制代码
+var chapterLink = source.Find("#at a");//查找id=at下的所有a标签
+foreach (var i in chapterLink)//这里循环的就是a标签
+{ 
+　　//aLink值 例如：<a href="http://www.23us.so/files/article/html/13/13655/5638724.html">楔子</a> 
+　　string title = i.InnerText();//楔子
+　　string url = i.Attribute("href").Value();//http://www.23us.so/files/article/html/13/13655/5638724.html 
+} 
+复制代码
+回到顶部
+C#完整代码
+复制代码
+using Ivony.Html;
+using Ivony.Html.Parser;using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Test.Controllers
+{
+    public class CrawlerController : BaseController
+    {
+        // GET: Crawler
+        public void Index()
+        {
+            //需要给utf-8的编码，否则html是乱码。
+            IHtmlDocument source = new JumonyParser().LoadDocument("http://www.23us.so/files/article/html/13/13655/index.html", System.Text.Encoding.GetEncoding("utf-8"));
+
+            //<meta name="keywords" content="无疆,无疆最新章节,无疆全文阅读"/>
+            string name = source.Find("meta[name=keywords]").FirstOrDefault().Attribute("content").Value().Split(',')[0];//获取小说名字
+            var chapterLink = source.Find("#at a");//查找id=at下的所有a标签
+            foreach (var i in chapterLink)//这里循环的就是a标签
+            {
+                //章节标题
+                string title = i.InnerText();
+
+                //章节url
+                string url = i.Attribute("href").Value();
+
+                //根据章节的url，获取章节页面的html
+                IHtmlDocument sourceChild = new JumonyParser().LoadDocument(url, System.Text.Encoding.GetEncoding("utf-8"));
+
+                //查找id=contents下的小说正文内容
+                string content = sourceChild.Find("#contents").FirstOrDefault().InnerHtml().Replace("&nbsp;", "").Replace("<br />", "\r\n");
+
+                //txt文本输出
+                string path = AppDomain.CurrentDomain.BaseDirectory.Replace("\\", "/") + "Txt/";
+                Novel(title + "\r\n" + content, name, path);
+            }
+        }
+    }
+}
+复制代码
+ 
+
+相关文章：C# 爬虫 抓取小说
+
+Jumony源代码地址：https://github.com/Ivony/Jumony
+
+分类: .NET/C#

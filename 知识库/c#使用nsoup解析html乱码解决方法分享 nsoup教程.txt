@@ -1,0 +1,235 @@
+https://www.jb51.net/article/45637.htm
+
+下载地址：http://nsoup.codeplex.com/
+
+简单用法如下：
+
+复制代码 代码如下:
+
+NSoup.Nodes.Document doc = NSoup.NSoupClient.Parse(HtmlString);
+处理网络上的页面：
+
+复制代码 代码如下:
+
+NSoup.Nodes.Document doc = NSoup.NSoupClient.Connect("//www.jb51.net/").Get();
+但是遗憾的是NSoup默认的编码是UTF-8，处理中文有乱码（对于编码是UTF-8的自然不会有乱码，但是有些GB2312的就可能有乱码，谢谢 forhells的提醒）。
+
+目前我找到两种解决办法：
+
+1.下载网页源代码再处理
+
+复制代码 代码如下:
+
+WebClient webClient = new WebClient();
+String HtmlString=Encoding.GetEncoding("utf-8").GetString(webClient.DownloadData("//www.jb51.net"));
+NSoup.Nodes.Document doc = NSoup.NSoupClient.Parse(HtmlString);
+2.获得网页的流
+
+复制代码 代码如下:
+
+WebRequest webRequest=WebRequest.Create("//www.jb51.net");
+NSoup.Nodes.Document doc = NSoup.NSoupClient.Parse(webRequest.GetResponse().GetResponseStream(),"utf-8");
+第二种用着比较方便，但是我觉得第一种比较合适，毕竟NSoup是个Html解析类，下载网页代码这种事情本来不应该交给它。
+
+
+
+https://blog.csdn.net/megoodtoo/article/details/49494917
+
+使用选择器语法来查找元素
+问题
+你想使用类似于CSS或jQuery的语法来查找和操作元素。
+
+方法
+可以使用Element.select(String selector)?和?Elements.select(String selector)?方法实现：
+
+File input = new File("/tmp/input.html");
+Document doc = Jsoup.parse(input, "UTF-8", "http://example.com/");
+ 
+Elements links = doc.select("a[href]"); //带有href属性的a元素
+Elements pngs = doc.select("img[src$=.png]");
+  //扩展名为.png的图片
+ 
+Element masthead = doc.select("div.masthead").first();
+  //class等于masthead的div标签
+ 
+Elements resultLinks = doc.select("h3.r > a"); //在h3元素之后的a元素
+说明
+jsoup elements对象支持类似于CSS?(或jquery)的选择器语法，来实现非常强大和灵活的查找功能。.
+
+这个select?方法在Document,?Element,或Elements对象中都可以使用。且是上下文相关的，因此可实现指定元素的过滤，或者链式选择访问。
+
+Select方法将返回一个Elements集合，并提供一组方法来抽取和处理结果。
+
+Selector选择器概述
+tagname: 通过标签查找元素，比如：a
+ns|tag: 通过标签在命名空间查找元素，比如：可以用?fb|name?语法来查找?<fb:name>?元素
+#id: 通过ID查找元素，比如：#logo
+.class: 通过class名称查找元素，比如：.masthead
+[attribute]: 利用属性查找元素，比如：[href]
+[^attr]: 利用属性名前缀来查找元素，比如：可以用[^data-]?来查找带有HTML5 Dataset属性的元素
+[attr=value]: 利用属性值来查找元素，比如：[width=500]
+[attr^=value],?[attr$=value],?[attr*=value]: 利用匹配属性值开头、结尾或包含属性值来查找元素，比如：[href*=/path/]
+[attr~=regex]: 利用属性值匹配正则表达式来查找元素，比如：?img[src~=(?i)\.(png|jpe?g)]
+*: 这个符号将匹配所有元素
+Selector选择器组合使用
+el#id: 元素+ID，比如：?div#logo
+el.class: 元素+class，比如：?div.masthead
+el[attr]: 元素+class，比如：?a[href]
+任意组合，比如：a[href].highlight
+ancestor child: 查找某个元素下子元素，比如：可以用.body p?查找在"body"元素下的所有p元素
+parent > child: 查找某个父元素下的直接子元素，比如：可以用div.content > p?查找?p?元素，也可以用body > *?查找body标签下所有直接子元素
+siblingA + siblingB: 查找在A元素之前第一个同级元素B，比如：div.head + div
+siblingA ~ siblingX: 查找A元素之前的同级X元素，比如：h1 ~ p
+el, el, el:多个选择器组合，查找匹配任一选择器的唯一元素，例如：div.masthead, div.logo
+伪选择器selectors
+:lt(n): 查找哪些元素的同级索引值（它的位置在DOM树中是相对于它的父节点）小于n，比如：td:lt(3)?表示小于三列的元素
+:gt(n):查找哪些元素的同级索引值大于n，比如：?div p:gt(2)表示哪些div中有包含2个以上的p元素
+:eq(n): 查找哪些元素的同级索引值与n相等，比如：form input:eq(1)表示包含一个input标签的Form元素
+:has(seletor): 查找匹配选择器包含元素的元素，比如：div:has(p)表示哪些div包含了p元素
+:not(selector): 查找与选择器不匹配的元素，比如：?div:not(.logo)?表示不包含 class=logo 元素的所有 div 列表
+:contains(text): 查找包含给定文本的元素，搜索不区分大不写，比如：?p:contains(jsoup)
+:containsOwn(text): 查找直接包含给定文本的元素
+:matches(regex): 查找哪些元素的文本匹配指定的正则表达式，比如：div:matches((?i)login)
+:matchesOwn(regex): 查找自身包含文本匹配指定正则表达式的元素
+注意：上述伪选择器索引是从0开始的，也就是说第一个元素索引值为0，第二个元素index为1等
+可以查看Selector?API参考来了解更详细的内容
+
+
+
+
+
+-----------------------------------------
+
+使用方法：
+
+? public class NETQuery
+? ? {
+? ? ? ? Document doc = null;
+
+
+? ? ? ? public NETQuery(string strUrl, string strEncode)?
+? ? ? ? {
+? ? ? ? ? ? string htmlString = GetStringByUrl(strUrl, strEncode);
+? ? ? ? ? ? if (!string.IsNullOrWhiteSpace(htmlString))
+? ? ? ? ? ? {
+? ? ? ? ? ? ? ? doc = NSoup.NSoupClient.Parse(htmlString);
+? ? ? ? ? ? }
+? ? ? ? }
+
+
+? ? ? ? #region 根据表达式查询数据
+? ? ? ? /// <summary>
+? ? ? ? /// 根据表达式查询数据
+? ? ? ? /// </summary>
+? ? ? ? /// <param name="expression">表达式</param>
+? ? ? ? /// <returns>返回结果的数据</returns>
+? ? ? ? public string QueryValue(string expression)
+? ? ? ? {
+? ? ? ? ? ? string result = "";
+? ? ? ? ? ? Elements elements = doc.Select(expression);
+? ? ? ? ? ? result = elements.Html();
+? ? ? ? ? ? return result;
+? ? ? ? }?
+? ? ? ? #endregion
+
+
+? ? ? ? #region 根据表达式查询dom节点
+? ? ? ? /// <summary>
+? ? ? ? /// 根据表达式查询dom节点
+? ? ? ? /// </summary>
+? ? ? ? /// <param name="expression">表达式</param>
+? ? ? ? /// <returns>返回对应的节点</returns>
+? ? ? ? public Elements QueryElements(string expression)
+? ? ? ? {
+? ? ? ? ? ? Elements elements = doc.Select(expression);
+? ? ? ? ? ? return elements;
+
+
+? ? ? ? }?
+? ? ? ? #endregion
+
+
+
+
+? ? ? ? #region 获取整个网页的html源码
+? ? ? ? string GetStringByUrl(string strUrl, string strEncode)
+? ? ? ? {
+? ? ? ? ? ? WebRequest wrt = WebRequest.Create(strUrl);
+? ? ? ? ? ? WebResponse wrse = wrt.GetResponse();
+? ? ? ? ? ? Stream strM = wrse.GetResponseStream();
+? ? ? ? ? ? StreamReader SR = new StreamReader(strM, Encoding.GetEncoding(strEncode));
+? ? ? ? ? ? string strallstrm = SR.ReadToEnd();
+? ? ? ? ? ? return strallstrm;
+? ? ? ? }
+? ? ? ? #endregion
+
+
+? ? ? ? ?
+
+
+? ? ??
+? ? ? ??
+? ? }
+
+
+
+
+
+例如：
+
+#region 获取动态页面的内容
+? ? ? ? /// <summary>
+? ? ? ? /// 获取动态页面的内容
+? ? ? ? /// </summary>
+? ? ? ? /// <param name="url">URL</param>
+? ? ? ? /// <returns>返回结果的字符串</returns>
+? ? ? ? public static string GetDTContent(string url)
+? ? ? ? {
+? ? ? ? ? ? string strEncode = "gb2312";
+? ? ? ? ? ? string strResult = "";
+? ? ? ? ? ? NETQuery query = new NETQuery(url, strEncode);
+? ? ? ? ? ? strResult = "<p align=\"left\">";
+? ? ? ? ? ? strResult =strResult+query.QueryValue("p[align=left]")+"</p>";
+? ? ? ? ? ? strResult = strResult + "<p align=\"right\">" + query.QueryValue("p[align=right]") + "</p>";
+? ? ? ? ? ? strResult = strResult + "<div align=\"left\">" + query.QueryValue("div[align=left]")+"</div>";
+? ? ? ? ? ? List<string> listHref = InsertWDCM.QueryHrefData(strResult);
+
+
+? ? ? ? ? ? #region 获取href
+? ? ? ? ? ? if (listHref != null && listHref.Count > 0)
+? ? ? ? ? ? {
+? ? ? ? ? ? ? ? Uri uri = new Uri(url);
+? ? ? ? ? ? ? ? string host = uri.Host;
+? ? ? ? ? ? ? ? host = "http://" + host;
+? ? ? ? ? ? ? ? foreach (string str in listHref)
+? ? ? ? ? ? ? ? {
+? ? ? ? ? ? ? ? ? ? if (!str.Contains("http://"))
+? ? ? ? ? ? ? ? ? ? {
+? ? ? ? ? ? ? ? ? ? ? ? string href = host + str;
+? ? ? ? ? ? ? ? ? ? ? ? if (Common.FileUploadUtil.ExistWebFile(href))
+? ? ? ? ? ? ? ? ? ? ? ? {
+? ? ? ? ? ? ? ? ? ? ? ? ? ? strResult = strResult.Replace(str, href);
+? ? ? ? ? ? ? ? ? ? ? ? }
+? ? ? ? ? ? ? ? ? ? ? ? else
+? ? ? ? ? ? ? ? ? ? ? ? {
+? ? ? ? ? ? ? ? ? ? ? ? ? ? strResult = strResult.Replace(str, "");
+? ? ? ? ? ? ? ? ? ? ? ? }
+? ? ? ? ? ? ? ? ? ? }
+? ? ? ? ? ? ? ? ? ? else?
+? ? ? ? ? ? ? ? ? ? {
+? ? ? ? ? ? ? ? ? ? ? ? if (!Common.FileUploadUtil.ExistWebFile(str))
+? ? ? ? ? ? ? ? ? ? ? ? {
+? ? ? ? ? ? ? ? ? ? ? ? ? ? strResult = strResult.Replace(str,"");
+? ? ? ? ? ? ? ? ? ? ? ? }
+? ? ? ? ? ? ? ? ? ? }
+? ? ? ? ? ? ? ? }
+? ? ? ? ? ? }
+? ? ? ? ? ? #endregion
+
+
+? ? ? ? ? ? return strResult;
+? ? ? ? }?
+? ? ? ? #endregion
+————————————————
+版权声明：本文为CSDN博主「MeGoodtoo」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/megoodtoo/article/details/49494917
