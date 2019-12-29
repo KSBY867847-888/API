@@ -1,0 +1,5 @@
+C:\Users\Administrator\Desktop\Hello\API\MODEL\bin\Debug\MODEL.dll
+C:\Users\Administrator\Desktop\Hello\API\MODEL\bin\Debug\MODEL.pdb
+C:\Users\Administrator\Desktop\Hello\API\MODEL\obj\Debug\MODEL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Hello\API\MODEL\obj\Debug\MODEL.dll
+C:\Users\Administrator\Desktop\Hello\API\MODEL\obj\Debug\MODEL.pdb
