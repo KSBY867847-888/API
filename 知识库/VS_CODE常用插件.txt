@@ -1,0 +1,546 @@
+这里主要说一下前端常用插件。
+Vetur
+
+Vue VSCode Snippets
+ 
+Auto Rename Tag
+
+　　自动重命名配对的HTML / XML标签
+background
+
+　　修改背景，设置编辑器界面的背景图片。但是好像现在会出错，具体设置内容在vsc找到插件看详细信息。
+Bootstrap 4 & Font awesome snippets
+
+　　bootstrap4和font awesome 快速引用和代码生成。
+Color-Highlight
+
+　　在编辑器中高亮显示颜色。
+Color Picker
+
+　　代码的颜色选择器。
+Css Peek
+
+　　能在源代码中的字符串中找到对应的css（类和ID）。显示在那个css文件里，还有在第几行。
+Csscomb
+
+　　css 、less、sass 的代码格式化。
+Debugger for Chrome
+
+　　js调试的插件，前端项目在Chrome中运行起来之后，可以直接在VSCode中打断点、查看输出、查看控制台，详细配置见插件说明。
+Document This
+
+　　为js文件生成文档的代码注释。
+ ESLint
+
+　　检查Javascript编程时的语法错误。
+Git Easy
+
+　　增加了vscode中自带的git操作，安装后按F1调出控制台，输入git easy [options]完成git操作，代替git bash。
+Git History 
+
+　　查看git日志以及图表和详细信息。
+　　查看文件的历史记录（Git日志）或文件中的行历史（Git Blame）
+Guides
+
+　　代码的标签对齐线。
+HTML CSS Class Completion
+
+　　为基于工作空间上的CSS文件的HTML类属性提供CSS类名称提示。
+HTML Boilerplate
+
+　　提供生成标准HTML样板代码。
+HTML CSS support
+
+　　css 自动补齐
+HTML Snippets
+
+　　支持HTML5标签提示
+JavaScript (ES6) snippets
+
+ 　　支持JavaScript  ES6 语法
+jQuery Code Snippets
+
+ 　　jq代码段提示。
+JS-CSS-HTML  Formatter
+
+　　代码格式化。
+Lodash
+
+　　lodash 函数提示。
+Lorem ipsum
+
+　　快速填充文本
+Npm Intellisense
+
+　　在import语句中自动完成npm模块引入的代码插件。
+open in browser
+
+　　在浏览器中打开，安装后在左侧目录中右键点击会出现 open in browser 选项。
+Path Intellisense
+
+　　文件路径提示。
+Settings Sync
+
+　　编辑器设置同步，包括插件，配置等。
+
+　　详情点击=》https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync
+VS Code CSS Comments
+
+　　css代码注释。
+vscode-browser-plugin
+
+　　在编辑器内预览HTML，
+
+　　通过开启端口(3000)监听当前打开项目的根目录，在编辑器内预览网站，省去了频繁切换浏览器、编辑器看页面效果，修改代码后自动刷新页面。
+vscode-icons
+
+　　文件图标。
+Vue 2 Snippets
+
+　　　vue 代码提示，高亮。
+
+　　（ps：使用其他框架，直接搜就好，像是react，angular，就会出现相关的代码提示和语法支持常用插件）
+主题插件：
+　　Material-theme；
+　　monokai-light;
+　　Monokai++;
+　　One Dark Theme;
+
+　　　个人审美不同，大家自己体会并选择。
+
+以上就是我的前端常用插件，有些插件的功能相互交叉重复，自己可以有选择的安装使用。
+vsc常用快捷键：
+
+同时打开多个窗口（查看多个项目）
+
+    打开一个新窗口： Ctrl+Shift+N
+    关闭窗口： Ctrl+Shift+W
+
+同时打开多个编辑器（查看多个文件）
+
+    新建文件 Ctrl+N
+    历史打开文件之间切换 Ctrl+Tab，Alt+Left，Alt+Right
+    切出一个新的编辑器（最多3个）Ctrl+\，也可以按住Ctrl鼠标点击Explorer里的文件名
+    左中右3个编辑器的快捷键Ctrl+1 Ctrl+2 Ctrl+3
+    3个编辑器之间循环切换 Ctrl+`
+    编辑器换位置，Ctrl+k然后按Left或Right
+
+格式调整
+
+    代码行缩进Ctrl+[， Ctrl+]
+    折叠打开代码块 Ctrl+Shift+[， Ctrl+Shift+]
+    Ctrl+C Ctrl+V如果不选中，默认复制或剪切一整行
+    代码格式化：Shift+Alt+F，或Ctrl+Shift+P后输入format code
+    修剪空格Ctrl+Shift+X
+    上下移动一行： Alt+Up 或 Alt+Down
+    向上向下复制一行： Shift+Alt+Up或Shift+Alt+Down
+    在当前行下边插入一行Ctrl+Enter
+    在当前行上方插入一行Ctrl+Shift+Enter
+
+光标相关
+
+    移动到行首：Home
+    移动到行尾：End
+    移动到文件结尾：Ctrl+End
+    移动到文件开头：Ctrl+Home
+    移动到后半个括号 Ctrl+Shift+]
+    选中当前行Ctrl+i（双击）
+    选择从光标到行尾Shift+End
+    选择从行首到光标处Shift+Home
+    删除光标右侧的所有字Ctrl+Delete
+    Shrink/expand selection： Shift+Alt+Left和Shift+Alt+Right
+    Multi-Cursor：可以连续选择多处，然后一起修改，Alt+Click添加cursor或者Ctrl+Alt+Down 或 Ctrl+Alt+Up
+    同时选中所有匹配的Ctrl+Shift+L
+    Ctrl+D下一个匹配的也被选中(被我自定义成删除当前行了，见下边Ctrl+Shift+K)
+    回退上一个光标操作Ctrl+U
+
+重构代码
+
+    跳转到定义处：F12
+    定义处缩略图：只看一眼而不跳转过去Alt+F12
+    列出所有的引用：Shift+F12
+    同时修改本文件中所有匹配的：Ctrl+F12
+    重命名：比如要修改一个方法名，可以选中后按F2，输入新的名字，回车，会发现所有的文件都修改过了。
+    跳转到下一个Error或Warning：当有多个错误时可以按F8逐个跳转
+    查看diff 在explorer里选择文件右键 Set file to compare，然后需要对比的文件上右键选择Compare with 'file_name_you_chose'.
+
+查找替换
+
+    查找 Ctrl+F
+    查找替换 Ctrl+H
+    整个文件夹中查找 Ctrl+Shift+F
+
+显示相关
+
+    全屏：F11
+    zoomIn/zoomOut：Ctrl + =/Ctrl + -
+    侧边栏显/隐：Ctrl+B
+    预览markdown Ctrl+Shift+V
+
+其他
+
+    自动保存：File -> AutoSave ，或者Ctrl+Shift+P，输入 auto
+--------------------- 
+作者：amyloverice 
+来源：CSDN 
+原文：https://blog.csdn.net/amyloverice/article/details/79388270 
+版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+///////////*********************************************************************************************
+https://www.cnblogs.com/parry/p/vscode_top_ten_plugins.html
+2. 10 个必装的编辑器插件
+
+相当于视频教程的补充更新，这里再次给大家整理出 10 个必装的 VSCode 编辑器插件。编辑器的基本使用与插件的安装可以直接参考上面的视频教程。
+2.1 文件图标 vscode-icons
+
+    插件名称：vscode-icons
+    插件地址：https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons
+
+首先为了我们在编码时有一个高效、易用的界面，我们需要对一些不明了的组件做一些美化。
+
+vscode-icons 插件可以实现对各种文件类型的文件前的图标进行优化显示，这样我们在查看长长的文件列表的时候，可以直接通过文件的图标就可以快速知道文件的类型，而不是去看文件的后缀。
+
+截图
+2.2 暗色主题 One Dark Pro
+
+    插件名称：One Dark Pro
+    插件地址：https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme
+
+长时间的编码，暗色调的编码环境更不容易让视力疲劳，而且也可以让自己更加专注。
+
+安装了 One Dark Pro 插件后，可以一键将 VSCode 编辑器的颜色调整成暗色系，编码起来更加舒适。
+
+截图
+2.3 代码美化 Beautify
+
+    插件名称：Beautify
+    插件地址：https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
+
+Beautify 插件可以快速格式化你的代码格式，让你在编写代码时杂乱的代码结构瞬间变得非常规整，代码强迫症必备，较好的代码格式在后期维护以及他人阅读时都会有很多的便利。
+
+插件支持的语言非常多，基本堵盖了目前所有的语言，而且你还可以自定义代码格式化的结构。
+
+截图
+2.4 代码检查工具 ESLint
+
+    插件名称：ESLint
+    插件地址：https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+ESLint 是一个语法规则和代码风格的检查工具，可以用来保证写出语法正确、风格统一的代码。
+
+而 VSCode 中的 ESLint 插件就直接将 ESLint 的功能集成好，安装后即可使用，对于代码格式与规范的细节还可以自定义，并且一个团队可以共享同一个配置文件，这样一个团队所有人写出的代码就可以使用同一个代码规范，在代码签入前每个人可以完成自己的代码规范检查。
+
+截图
+2.5 必备调试工具 Debugger for Chrome
+
+    插件名称：Debugger for Chrome
+    插件地址：https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome
+
+此工具简直就是前端开发必备，将大大地改变你的开发与调试模式。
+
+以往的前端调试，主要是 JavaScript 调试，你需要在 Chrome 的控制台中找到对应代码的部分，添加上断点，然后在 Chrome 的控制台中单步调试并在其中查看值的变化。
+
+而在使用了 Debugger for Chrome 后，当代码在 Chrome 中运行后，你可以直接在 VSCode 中加上断点，点击运行后，Chrome 中的页面继续运行，执行到你在 VSCode 中添加的断点后，你可以直接在 VSCode 中进行单步调试。
+
+关于 Chrome 调试工具的使用，你可以参考我在我们的知识星球中分享的原创视频教程「50 个 Chrome Developer Tools 必备技巧」，课程分享了前端开发中必备的浏览器调试工具 Chrome Developer Tools 使用过程中必备的 50 个使用与调试技巧，这些知识是你成为合格的前端开发人员必备技能。
+
+截图
+2.6 万能语言运行环境 Code Runner
+
+    插件名称：Code Runner
+    插件地址：https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
+
+如果你需要学习或者接触各种各样的开发语言，那么 Code Runner 插件可以让你不用搭建各种语言的开发环境，直接通过此插件就可以直接运行对应语言的代码，非常适合学习或测试各种开发语言。
+
+支持的语言有：C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, 以及一些自定义的命令。
+
+截图
+2.7 快速注释 Document This
+
+    插件名称：Document This
+    插件地址：https://marketplace.visualstudio.com/items?itemName=joelday.docthis
+
+优秀的代码除了优秀的性能、规范的格式，注释也是不可或缺的，而且注释也应该有一套标准的注释方法，特别对于 JavaScript 这种语言。
+
+Document This 可以快速地帮你生成注释，如一些函数的注释还能帮你抽取出参数的定义等，是你编写规范代码必备的工具。
+
+截图
+2.8 CSS 类名智能提示
+
+    插件名称：IntelliSense for CSS class names in HTML
+    插件地址：https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion
+
+在 HTML 中调用定义好的样式名时，有时需要经常在 HTML 与 CSS 文件之间切换，来回地查看你已定义好的 CSS 类名。
+
+而有了 IntelliSense for CSS class names in HTML 插件后，你可以在 HTML 中需要调用 CSS 类名的地方，此插件会智能地给你已定义 CSS 类名的提示。
+
+截图
+2.9 代码拼写检查 Code Spell Checker
+
+    插件名称：Code Spell Checker
+    插件地址：https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+
+此插件安装后就不用管就好了，在你代码中有单词拼写错误时，你就会发现它的好处，因为我们写代码毕竟都是大量的英文单词变量定义，插件还可以给出错误拼写单词的建议。
+
+截图
+2.10 备忘插件 TODO Highlight
+
+    插件名称：TODO Highlight
+    插件地址：https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+
+在很多的其他代码编辑器中都有 TODO 标注功能的，如你写到某一部分的代码时，其中部分的功能需要稍后再来实现，这是就可以在对应的代码处添加一个 TODO 类型的注释，那么后期就可以快速地跳转到这部分继续写，而且当项目很大的时候，TODO 就变得更加有用，因为有时候 TODO 可能有几十个，帮助你标注那些功能需要继续实现或优化。
+
+截图
+3. 总结
+
+当然，这里介绍的插件只是必备插件中的 10 个，其实根据你开发的语言，还有很多非常能提高开发效率的工具需要安装，你可以自行在 VSCode 的插件中心查询下载安装。
+
+
+//////////////////////************************************************************************************
+推荐插件
+
+　　C/C++：添加C/C++支持，包括但不限于自动补全
+
+　　Python：自动缩进，补全，查错，debug，代码格式化等等
+
+　　beauTIfy：格式化html，css，js
+
+　　vscode-icons：一款很火的图标主题
+
+　　HTML Snippets：可以在不输入 《 的情况下提示
+
+　　View In Browser：在浏览器中打开 HTML 文件
+
+　　Crane - PHP Intellisense：PHP代码的自动补全插件
+
+　　jQuery Code Snippets：一款jQuery重度患者的插件
+
+　　Debugger for Chrome ：调试JavaScript
+
+　　Git History：显示git log和line history
+
+ 
+
+Git 的使用
+
+　　需要本机已经安装 Git
+
+　　无需安装插件，单机侧边栏的第三个图标即可进行 add、commit、push、pull。（或者使用ctrl+shift+g打开，或使用 查看-》Git 打开Git）
+
+　　
+
+主题更换
+
+　　图标主题：Ctrl+shift +p 打开命令面板，输入 icon theme 后回车，选择一个即可。
+
+　　颜色主题：Ctrl+shift +p 打开命令面板，输入 color theme 后回车，选择一个即可。
+
+　　
+
+跳转
+
+　　跳转到文件：Ctrl+P。
+
+　　跳转到符号：Ctrl+shift+o，可以跳转到文件中的方括号、大括号等等。
+
+　　跳转到行：Ctrl+G，可以跳转到指定行。
+
+　　
+
+Debug
+
+　　使用ctrl+d 打开debug面板。
+
+　　可以根据需要配置launch.json
+
+　　
+
+常用功能
+
+　　Emmet：使用 Tab 自动补全HTML标签
+
+　　Markdown Preview：使用 Ctrl + shift + v预览markdown文件
+
+　　使用shift + alt + up/down可以向上/下复制选中内容或者当前行
+
+　
+
+常用插件
+
+　　View In Browser
+
+　　- 预览页面（ctrl+F1）
+
+　　vscode-icons
+
+　　- 侧栏的图标，对于一个有视觉强迫症的人是必须要的
+
+　　HTML Snippets
+
+　　- 支持HTML5的标签提示
+
+　　HTML CSS support
+
+　　- css自动补齐
+
+　　JS-CSS-HTML Formatter
+
+　　
+
+格式化
+
+　　jQuery Code Snippets
+
+　　jquery 自动提示
+
+　　Path Autocomplete
+
+　　- 路径自动补齐
+
+　　Npm Intellisense
+
+　　- npm包代码提示
+
+　　ESLint
+
+　　- 检测JS必备
+
+　　Debugger for Chrome
+
+　　- 方便调试
+
+　　Auto Rename Tag
+
+　　- 自动同步修改标签
+
+　　Bootstrap 3 Snippets
+
+　　- bootstrap必备
+
+　　Vue 2 Snippets
+
+　　- vue必备
+
+　　background
+
+　　- 一个萌萌的插件，可以自己设置vsc的背景图
+
+　　
+
+常用快捷键
+
+　　（在快捷键部分， ? 指 Command 键，? 指 Shift 键，? 指 Control 键，? 指 OpTIon/Alt 键。）
+
+　　这里主要就是实验F1上的快捷键，一些我认为没用的我就不列出来了。
+
+　　向上（下）复制行 shift + alt + top（down）
+
+　　向上（下）移动行* alt + top（down）*
+
+　　新建一个窗口 ctrl + shift + N
+
+　　行增加缩进： ctrl + ［
+
+　　行减少缩进 * ctrl + ］**
+
+　　裁剪尾随空格（去掉一行的末尾那些没用的空格）： ctrl + shift + x
+
+　　强烈建议把这个启用，这样保存的时候就会自动删掉那些没用的空格，在很多公司的代码规范里都是不允许存在这些空格的。
+
+　　显示隐藏侧边栏：ctrl + B
+
+　　拆分编辑器（最多拆分成三块）：ctrl + /按ctrl + 1（2，3）就可以在拆分后的编辑器里切换
+
+　　方法缩小ctrl +（-）
+
+　　关闭编辑器 ctrl + W（F4）
+
+　　切换编辑器 ctrl + shift + left（right）
+
+　　也可以用 ctrl+1（2，3）
+
+　　显示和隐藏侧边栏 ctrl + B
+
+　　切换全屏 F11
+
+　　切换自动换行 alt + Z
+
+　　显示Git ctrl + shift + G
+
+　　前提是你的项目必须是一个git项目
+
+　　这个还是很有用的，有时候我们的屏幕不够大，可是代码没有自动换行，所以被遮住的代码就会看不到，但是你用这个快捷键就可以换行看到了。这个我是在用户设置里面设置成自动换行的。
+
+　　
+
+修改用户设置
+
+　　把默认的用户设置成适合我们自己的还是很重要的。
+
+　　也很简单，文件 – 首选项 – 用户设置，然后出来左边的默认设置是不能改的，需要在右边setTIngs.json中覆盖。
+
+　　
+
+修改快捷键
+
+　　文件 – 首选项 – 键盘快捷方式，和修改用户设置的时候一样，找到你要修改的快捷键名字，右边覆盖就可以了，一些还没有绑定快捷键的功能可以在左边的最下面看到，然后快捷键的名字就是这个。
+
+ 
+
+新建文件
+
+　　右键 – 新建文件，文件后缀名自己加上，自动识别。
+
+       新建.html文件后，空白页，没有页面默认代码结构，此时在编辑区输入html，回车第二个或者第三个即可
+
+
+
+///////////////////////////////****************************************************************************
+ VScode使用简介   http://www.cnblogs.com/zhaowy/p/8444770.html
+1.1 VSCode简介
+
+VSCode官网：https://code.visualstudio.com/
+
+支持语音：
+
+速度较快，对超大文件读写速度飞快(打开10M代码不到1s，Subline原生会卡近6s)，插件数量相对少，有一些增强功能比如调试器， 终端，原生支持语言语法高亮较少(C# JS TypeScript是第一位)，内置JS/TS调试器…可以基于不同项目(文件夹)设置偏好，写C#和JS/TS专用
+
+    注意：VSCode需要安装git和Framework
+
+主题常用：Monokai
+1.2 常用插件
+插件名称	介绍	使用方法
+filesize 	在底部状态栏显示当前文件大小，点击后还可以看到详细创建、修改时间 	自动启用
+vscode-icons 	美化VSCode的界面，在文件名前面显示小图标 	自动启用
+view in browser 	用浏览器预览HTML文件 	鼠标右键
+Bootstrap 3 Sinnpet 	常用 bootstrap 的可以下 	根据片段触发
+css peek 	跟踪样式表中 CSS 类和 id 的样式，点击右键直接跳转到对应的css代码 	 
+Auto Close Tag 	自动闭合HTML标签 	 
+HTML Snippets 	超级实用且初级的 H5代码片段以及提示 	 
+HTML CSS Support 	让 html 标签上写class 智能提示当前项目所支持的样式。 <br>新版已经支持scss文件检索(更新应该是这个插件 IntelliSense for CSS class names in HTML) 	？
+Debugger for Chrome 	让 vscode 映射 chrome 的 debug功能，静态页面都可以用 vscode 来打断点调试 	 
+jQuery Code Snippets 	jquery 重度患者必须品 	 
+Sublime Text Keymap for VS Code 	模仿sublime快捷键操作 	 
+Path Intellisense 	自动路劲补全，默认不带这个功能的 	 
+ESlint 	ESlint 接管原生 js 提示，可以自定制提示规则。 	1
+HTMLHint 	html代码检测 	1
+Project Manager 	在多个项目之前快速切换的工具 	 
+HTML CSS Class Completio 	扫描项目中的所有css中的class名，在html中自动补全，安装后每次打开自动启用 	 
+  	  	 
+vscode-fileheade 	顶部注释模板，可定义作者、时间等信息，并会自动更新最后修改时间 	 
+Auto Rename Tag 	修改HTML标签时，自动修改匹配的标签 	1
+Beautify css, sass and less code 	格式化代码的工具，css/sass/less格式化 	1
+Bracket Pair Colorizer 	让括号拥有独立的颜色，易于区分。可以配合任意主题使用。 	 
+vetur 	语法高亮、智能感知、Emmet等 	 
+VueHelper 	snippet代码片段 	 
+1.3主题
+1.Material
+
+冷门、好看、实用。此主题已停更许久
+2.Dracula
+
+目前我觉得是vscode上最漂亮的主题,vscode 1.11+允许自定义statusBar等全局ui后,该主题也跟进改了很多小细节,良心!~
+3.One Dark Pro
+
+源于Atom,老版本的Atom One Dark主题可以扔了.
