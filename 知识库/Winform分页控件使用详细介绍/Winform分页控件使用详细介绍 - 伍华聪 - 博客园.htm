@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js" type="text/javascript" async=""></script><script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ga.js" async="" type="text/javascript"></script><script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/encoder.js" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Winform分页控件使用详细介绍 - 伍华聪 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/style.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/wuhuacong/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/wuhuacong/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/wuhuacong/wlwmanifest.xml">
+<script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'wuhuacong';</script>
+<script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script>
+<script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_31.js" type="text/javascript" async=""></script><script src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js" type="text/javascript"></script></head>
+<body>
+<a name="top"></a>
+
+<div id="wrapper">
+<div id="header">
+
+<div id="top">
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/wuhuacong/">wuhuacong(伍华聪)的专栏</a></h1>
+<div id="subtitle"></div>
+</div>
+<div id="sub">
+<div class="BlogStats">随笔 - 294, 文章 - 17, 评论 - 4702, 引用 - 20</div>
+</div>
+
+
+
+</div>
+<div id="main_container">
+<div id="main_content">
+<div id="content">
+	
+
+	<div class="post">
+		<h2>
+			<a id="cb_post_title_url" href="http://www.cnblogs.com/wuhuacong/archive/2011/07/03/2096760.html">Winform分页控件使用详细介绍</a>
+		</h2>
+		<div class="postbody">
+		<div id="cnblogs_post_body"><div>自从上篇随笔《<span class="Apple-style-span" style="color: #444444; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 18px; font-weight: bold; line-height: normal;"><a id="ctl01_TitleUrl" style="color: #223355; text-decoration: none;" href="http://www.cnblogs.com/wuhuacong/archive/2011/06/25/2090416.html"><span style="font-size: 10pt;">Winform分页控件最新版本发布，并提供基于DotNetBar界面的版本</span></a></span>》
+介绍了最新版本的分页控件，并提供下载使用后，很多人对分页控件非常感兴趣（毕竟Winform数据分页是很常见的），并关注该分页控件应该如何使用，其
+实分页控件在之前很多篇随笔中断断续续都有介绍，为了使大家对分页控件有个系统的认识，本篇详细介绍分页控件的一些属性设置及相关使用注意事项，使大家对
+该分页控件有一个更深的了解、跟系统的认识，以便在相关的项目开发中熟练使用。<span style="font-size: 14pt;"><strong><br></strong></span><strong>分页控件效果</strong></div>
+<p>&nbsp;<img style="width: 1017px;" src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pager1.png" alt=""></p>
+<p>&nbsp;</p>
+<p><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/dotwinfrom_main2.png" alt="">&nbsp;</p>
+<p><strong style="font-size: 12pt;">实现步骤</strong></p>
+<p>&nbsp;1、在Visual Studio开发环境的工具箱中，添加一个分页控件（可以其他名称）的项目，然后选择WHC.Pager.WinControl.dll文件，导入分页控件的工具箱图标，如下所示。</p>
+<p>其中WinGridViewPager和WinGridView两个控件就是我们常用到的分页控件，两者用法几乎一致，界面效果不同在于WinGridViewPager具有分页工具条，而WinGridView是提供显示所有内容，没有工具条。<br><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/PagerToolBox.png" alt="" width="255" height="383"></p>
+<p>&nbsp;</p>
+<p>2、拖动到指定的窗体中。</p>
+<p>3、在代码引用相关的代码实现动态调用。&nbsp;</p>
+<p>&nbsp;</p>
+<div><span style="font-size: 19px; line-height: 27px;"><strong>实现代码</strong></span></div>
+<div>1、在窗体加载实现中添加分页控件的实现代码，以On开始的是相关操作的实现事件，如OnPageChanged表示分页控件页面发生变化的时候，需要实现的事件处理（<span style="color: red;">这个是必须的</span>），另外AppendedMenu是可以在分页控件自带菜单上增加的菜单，如下所示。注意，只要实现相关的事件处理，那么对应的上下文菜单将会出现，默认几个标准的上下文菜单如下所示，包含新建、编辑选定项、删除选定项、打印列表、刷新列表菜单。<br><span style="color: red;"><span style="color: red;"><strong>注意，为了使分页控件能够显示总数，并记住当前的分页，那么在OnPageChanged实现中需要修改分页控件的</strong></span></span>
+<div style="display: inline !important;">RecordCount和</div>
+<div style="display: inline !important;">CurrenetPageIndex</div>
+<span style="color: red;"><strong><span class="Apple-style-span" style="font-weight: normal;"><strong><span class="Apple-style-span" style="font-weight: normal;"><strong><span class="Apple-style-span" style="font-weight: normal;"><strong>这两个属性。</strong></span></strong></span><br></strong></span></strong></span><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/PagerContextMenu.png" alt="" width="373" height="221"><br><br>如果需要添加自己的菜单，则指定AppendedMenu对象即可。<br><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/PagerContextMenuApended.png" alt="" width="460" height="264"></div>
+<p>主要实现代码如下：&nbsp;</p>
+<p>&nbsp;<span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #0000ff;">private</span></span><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #000000;">&nbsp;</span></span><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #0000ff;">void</span></span><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #000000;">&nbsp;FrmCustomer_Load(</span></span><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #0000ff;">object</span></span><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e) &nbsp; &nbsp;</span></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;BindData();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.OnPageChanged&nbsp;</span><span style="color: #000000;">+=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;EventHandler(winGridViewPager1_OnPageChanged);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.OnStartExport&nbsp;</span><span style="color: #000000;">+=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;EventHandler(winGridViewPager1_OnStartExport);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.OnEditSelected&nbsp;</span><span style="color: #000000;">+=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;EventHandler(winGridViewPager1_OnEditSelected);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.OnDeleteSelected&nbsp;</span><span style="color: #000000;">+=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;EventHandler(winGridViewPager1_OnDeleteSelected);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.OnRefresh&nbsp;</span><span style="color: #000000;">+=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;EventHandler(winGridViewPager1_OnRefresh);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.OnAddNew&nbsp;</span><span style="color: #000000;">+=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;EventHandler(winGridViewPager1_OnAddNew);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AppendedMenu&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.contextMenuStrip1; &nbsp;&nbsp;<br>}</span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>2、其他代码的实现如下所示，包含分页事件、刷新事件、删除事件、编辑事件、新增事件、导出Excel事件等。&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<div><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;winGridViewPager1_OnPageChanged(</span><span style="color: #0000ff;">object</span><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;BindData();&nbsp;&nbsp;&nbsp;&nbsp;<br>}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;winGridViewPager1_OnRefresh(</span><span style="color: #0000ff;">object</span><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;BindData();&nbsp;&nbsp;&nbsp;&nbsp;<br>}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;winGridViewPager1_OnDeleteSelected(</span><span style="color: #0000ff;">object</span><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">if</span><span style="color: #000000;">&nbsp;(MessageUtil.ShowYesNoAndTips(</span><span style="color: #800000;">"</span><span style="color: #800000;">您确定删除选定的记录么？</span><span style="color: #800000;">"</span><span style="color: #000000;">)&nbsp;</span><span style="color: #000000;">==</span><span style="color: #000000;">&nbsp;DialogResult.No)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">return</span><span style="color: #000000;">;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;DataGridView&nbsp;grid&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;sender&nbsp;</span><span style="color: #0000ff;">as</span><span style="color: #000000;">&nbsp;DataGridView;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">if</span><span style="color: #000000;">&nbsp;(grid&nbsp;</span><span style="color: #000000;">!=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">null</span><span style="color: #000000;">)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">&nbsp;(DataGridViewRow&nbsp;row&nbsp;</span><span style="color: #0000ff;">in</span><span style="color: #000000;">&nbsp;grid.SelectedRows)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BLLFactory</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">Customer</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">.Instance.Delete(row.Cells[</span><span style="color: #800080;">0</span><span style="color: #000000;">].Value.ToString());&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BindData();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;winGridViewPager1_OnEditSelected(</span><span style="color: #0000ff;">object</span><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;DataGridView&nbsp;grid&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;sender&nbsp;</span><span style="color: #0000ff;">as</span><span style="color: #000000;">&nbsp;DataGridView;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">if</span><span style="color: #000000;">&nbsp;(grid&nbsp;</span><span style="color: #000000;">!=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">null</span><span style="color: #000000;">)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">&nbsp;(DataGridViewRow&nbsp;row&nbsp;</span><span style="color: #0000ff;">in</span><span style="color: #000000;">&nbsp;grid.SelectedRows)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FrmEditCustomer&nbsp;dlg&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">new</span><span style="color: #000000;">&nbsp;FrmEditCustomer();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dlg.ID&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;row.Cells[</span><span style="color: #800080;">0</span><span style="color: #000000;">].Value.ToString();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">if</span><span style="color: #000000;">&nbsp;(DialogResult.OK&nbsp;</span><span style="color: #000000;">==</span><span style="color: #000000;">&nbsp;dlg.ShowDialog())&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BindData();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">break</span><span style="color: #000000;">;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;winGridViewPager1_OnAddNew(</span><span style="color: #0000ff;">object</span><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;btnAddNew_Click(</span><span style="color: #0000ff;">null</span><span style="color: #000000;">,&nbsp;</span><span style="color: #0000ff;">null</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;winGridViewPager1_OnStartExport(</span><span style="color: #0000ff;">object</span><span style="color: #000000;">&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">string</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">where</span><span style="color: #000000;">&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;GetSearchSql();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AllToExport&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;BLLFactory</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">Customer</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">.Instance.FindToTable(</span><span style="color: #0000ff;">where</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;BindData()&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">#region</span><span style="color: #000000;">&nbsp;添加别名解析&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000000;"><br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">ID</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">编号</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Number</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">客户编号</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Name</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">客户名称</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Type</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">客户类型</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Area</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">客户地区</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Company</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">客户单位</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Address</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">客户地址</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Telephone1</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">电话1</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Telephone2</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">电话2</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Telephone3</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">电话3</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Telephone4</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">电话4</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Telephone5</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">电话5</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">CreateDate</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">开户日期</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Shop_ID</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">分店ID</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Note</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">备注</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">LastUpdated</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">更新日期</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">#endregion</span><span style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000000;"><br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">string</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">where</span><span style="color: #000000;">&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;GetSearchSql();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.DataSource&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;BLLFactory</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">Customer</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">.Instance.Find(</span><span style="color: #0000ff;">where</span><span style="color: #000000;">,&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.PagerInfo);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.dataGridView1.Refresh();&nbsp;&nbsp;&nbsp;&nbsp;<br>}</span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>3、如果不想把所有的实体类属性或者表字段都显示处理（默认全部显示），那么可以设置属性DisplayColumns即可。<br><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.DisplayColumns&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">ID,ItemNo,ItemName,Manufacture,MapNo,Specification,StockQuantity,AlarmQuantity,WareHouse</span><span style="color: #800000;">"</span><span style="color: #000000;">; &nbsp;</span></span>&nbsp;</p>
+<p>4、设备报表标题如下所示。&nbsp;</p>
+<p><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;"><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.PrintTitle&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;Portal.gc.gAppUnit&nbsp;</span><span style="color: #000000;">+</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">&nbsp;--&nbsp;</span><span style="color: #800000;">"</span><span style="color: #000000;">&nbsp;</span><span style="color: #000000;">+</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">备件信息报表</span><span style="color: #800000;">"</span><span style="color: #000000;">; &nbsp;</span></span>&nbsp;</p>
+<p>&nbsp;</p>
+<p>5、绑定自定义Datatable对象的实现。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<div><span style="color: #0000ff;">private</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">void</span><span style="color: #000000;">&nbsp;BindData()&nbsp;&nbsp;&nbsp;&nbsp;<br>{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.DisplayColumns&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">ID,ItemNo,ItemName,Manufacture,MapNo,Specification,Material,ItemBigType,ItemType,</span><span style="color: #800000;"><br></span><span style="color: #000000;">Unit,Price,Source,StoragePos,UsagePos,StockQuantity,AlarmQuantity,Note,Dept,WareHouse</span><span style="color: #800000;">"</span><span style="color: #800000;">;&nbsp;&nbsp;&nbsp;</span><span style="color: #800000;"><br></span><span style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">#region</span><span style="color: #000000;">&nbsp;添加别名解析&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000000;"><br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">ID</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">编号</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemNo</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">项目编号</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemName</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">项目名称</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Manufacture</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">供货商</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">MapNo</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">图号</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Specification</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">规格型号</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Material</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">材质</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemBigType</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">备件属类</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemType</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">备件类别</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Unit</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">单位</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Price</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">单价</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Source</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">来源</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">StoragePos</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">库位</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">UsagePos</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">使用位置</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">StockQuantity</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">当前库存</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">WareHouse</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">所属库房</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Dept</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">所属部门</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.AddColumnAlias(</span><span style="color: #800000;">"</span><span style="color: #800000;">Note</span><span style="color: #800000;">"</span><span style="color: #000000;">,&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">备注</span><span style="color: #800000;">"</span><span style="color: #000000;">);&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">#endregion</span><span style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #000000;"><br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">string</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">where</span><span style="color: #000000;">&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;GetConditionSql();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;List</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">ItemDetailInfo</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">&nbsp;list&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;BLLFactory</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">ItemDetail</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">.Instance.Find(</span><span style="color: #0000ff;">where</span><span style="color: #000000;">,&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.PagerInfo);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">string</span><span style="color: #000000;">&nbsp;tableColumns&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">ID|int,ItemNo,ItemName,StockQuantity|int,Manufacture,MapNo,Specification,Material,ItemBigType,ItemType,</span><span style="color: #800000;"><br></span><span style="color: #000000;">Unit,Price</span><span style="color: #000000;">|</span><span style="color: #0000ff;">decimal</span><span style="color: #000000;">,Source,StoragePos,UsagePos,Note,WareHouse,Dept</span><span style="color: #800000;">"</span><span style="color: #800000;">;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #800000;"><br></span><span style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;DataTable&nbsp;dt&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;DataTableHelper.CreateTable(tableColumns);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;DataRow&nbsp;dr&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">null</span><span style="color: #000000;">;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">&nbsp;(ItemDetailInfo&nbsp;info&nbsp;</span><span style="color: #0000ff;">in</span><span style="color: #000000;">&nbsp;list)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;dt.NewRow();&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">ID</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.ID;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemBigType</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.ItemBigType;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemName</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.ItemName;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemNo</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.ItemNo;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">ItemType</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.ItemType;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Manufacture</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Manufacture;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">MapNo</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.MapNo;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Material</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Material;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Note</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Note;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Price</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Price;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Source</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Source;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Specification</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Specification;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">StoragePos</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.StoragePos;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Unit</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Unit;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">UsagePos</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.UsagePos;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">WareHouse</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.WareHouse;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">Dept</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;info.Dept;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StockInfo&nbsp;stockInfo&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;BLLFactory</span><span style="color: #000000;">&lt;</span><span style="color: #000000;">Stock</span><span style="color: #000000;">&gt;</span><span style="color: #000000;">.Instance.FindByItemNo(info.ItemNo);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">int</span><span style="color: #000000;">&nbsp;quantity&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;</span><span style="color: #800080;">0</span><span style="color: #000000;">;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">if</span><span style="color: #000000;">&nbsp;(stockInfo&nbsp;</span><span style="color: #000000;">!=</span><span style="color: #000000;">&nbsp;</span><span style="color: #0000ff;">null</span><span style="color: #000000;">)&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quantity&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;stockInfo.StockQuantity;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dr[</span><span style="color: #800000;">"</span><span style="color: #800000;">StockQuantity</span><span style="color: #800000;">"</span><span style="color: #000000;">]&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;quantity;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows.Add(dr);&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.DataSource&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;dt.DefaultView;</span><span style="color: #008000;">//</span><span style="color: #008000;">new&nbsp;WHC.Pager.WinControl.SortableBindingList&lt;ItemDetailInfo&gt;(list);&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #008000;"><br></span><span style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000ff;">this</span><span style="color: #000000;">.winGridViewPager1.PrintTitle&nbsp;</span><span style="color: #000000;">=</span><span style="color: #000000;">&nbsp;Portal.gc.gAppUnit&nbsp;</span><span style="color: #000000;">+</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">&nbsp;--&nbsp;</span><span style="color: #800000;">"</span><span style="color: #000000;">&nbsp;</span><span style="color: #000000;">+</span><span style="color: #000000;">&nbsp;</span><span style="color: #800000;">"</span><span style="color: #800000;">备件信息报表</span><span style="color: #800000;">"</span><span style="color: #000000;">;&nbsp;&nbsp;&nbsp;&nbsp;<br>}</span></div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span class="Apple-style-span" style="font-family: 'Courier New'; font-size: 13px; line-height: 19px;">&nbsp;</span>&nbsp;</p>
+<p>&nbsp;</p>
+<div>
+<p style="margin-top: 5px; margin-right: auto; margin-left: auto; margin-bottom: 5px; text-indent: 0px;">下面提供相关分页控件的下载地址：</p>
+<p style="margin-top: 5px; margin-right: auto; margin-left: auto; margin-bottom: 5px; text-indent: 0px;">1、传统界面的的Winform分页控件：<a style="color: #1d58d1; text-decoration: none;" href="http://files.cnblogs.com/wuhuacong/WHC.Pager.WinControl.zip">http://files.cnblogs.com/wuhuacong/WHC.Pager.WinControl.zip</a>&nbsp;&nbsp;</p>
+</div>
+<p><span class="Apple-style-span" style="font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; font-size: 13px; line-height: 19px;">2、Dotnetbar界面效果的Winform分页控件：<a style="color: #1d58d1; text-decoration: none;" href="http://files.cnblogs.com/wuhuacong/WHC.Pager.WinControlEx.zip">http://files.cnblogs.com/wuhuacong/WHC.Pager.WinControlEx.zip</a>&nbsp;</span>&nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>WInform分页控件的CHM格式帮助文档：<a href="http://files.cnblogs.com/wuhuacong/WinformPagerHelp.rar">http://files.cnblogs.com/wuhuacong/WinformPagerHelp.rar</a>&nbsp;</p>
+<p>&nbsp;</p></div><div id="MySignature"><div style="border-right-color: #cccccc; border-right-width: 1px; border-right-style: solid; padding-right: 5px; border-top-color: #cccccc; border-top-width: 1px; border-top-style: solid; padding-left: 4px; font-size: 13px; padding-bottom: 4px; border-left-color: #cccccc; border-left-width: 1px; border-left-style: solid; width: 98%; word-break: break-all; padding-top: 4px; border-bottom-color: #cccccc; border-bottom-width: 1px; border-bottom-style: solid; background-color: #eeeeee; "><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/None.gif" alt="" align="top">主要研究技术：代码生成工具、Visio二次开发、送水管理软件等共享软件开发<br><span style="color: #000000"><span class="Apple-tab-span" style="white-space:pre">			</span>专注于<a href="http://www.cnblogs.com/wuhuacong/tag/Winform%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">Winform开发框架</a>、WCF开发框架的研究及应用。<br>&nbsp;&nbsp;转载请注明出处：<br><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/None.gif" alt="" align="top">撰写人：伍华聪&nbsp;&nbsp;<a href="http://www.iqidi.com/" target="_blank">http://www.iqidi.com</a>&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span></div></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="blog_post_info"><div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/wuhuacong/tag/WinForm%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/">WinForm界面开发</a>, <a href="http://www.cnblogs.com/wuhuacong/tag/%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6/">分页控件</a></div>
+<div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(cb_entryId,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="digg_block">
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/wuhuacong/" target="_blank"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/u8867.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/wuhuacong/">伍华聪</a><br>
+<a href="http://home.cnblogs.com/u/wuhuacong/followees">关注 - 47</a><br>
+<a href="http://home.cnblogs.com/u/wuhuacong/followers">粉丝 - 2053</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor">荣誉：<a href="http://www.cnblogs.com/expert/" target="_blank">推荐博客</a></div>
+<div id="author_profile_follow">
+<a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+	<div class="diggit" onclick="votePost(cb_entryId,'Digg')"> 
+		<span class="diggnum" id="digg_count">5</span>
+	</div>
+	<div class="buryit" onclick="votePost(cb_entryId,'Bury')"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div></div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/wuhuacong/archive/2011/06/30/2095080.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/wuhuacong/archive/2011/06/30/2095080.html" title="发布于2011-06-30 22:48">厚积薄发，丰富的公用类库积累，助你高效进行系统开发（1）----开篇总结</a><br><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/04/2097771.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/04/2097771.html" title="发布于2011-07-04 22:05">厚积薄发，丰富的公用类库积累，助你高效进行系统开发（2）----常用操作</a><br></div>
+</div>
+
+
+		</div>
+		<p class="postfoot">
+			posted on <span id="post-date">2011-07-03 14:24</span> <a href="http://www.cnblogs.com/wuhuacong/">伍华聪</a> 阅读(<span id="post_view_count">10550</span>) 评论(<span id="post_comment_count">22</span>)  <a href="http://www.cnblogs.com/wuhuacong/admin/EditPosts.aspx?postid=2096760" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2096760);return false;">收藏</a>
+		</p>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=12391,cb_entryId=2096760,cb_blogApp=currentBlogApp,cb_blogUserGuid='689f310b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2011/7/3 14:24:00';loadViewCount(cb_entryId);</script>
+	
+	<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<a name="评论"></a>
+<div id="comments">
+<h3>评论</h3>
+	
+	
+			<div class="post">
+				<h2>
+					<a href="#2141764" class="layer">#1楼</a><a name="2141764" id="comment_anchor_2141764"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141764" class="blog_comment_body">好好支持一下。<br></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141764,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141764,'Bury',this)">反对(0)</a></div><span id="comment_2141764_avatar" style="display:none;">http://pic.cnitblog.com/face/u35584.jpg</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 14:46</span> | <a id="a_comment_author_2141764" href="http://www.cnblogs.com/jirigala/" target="_blank">C#.NET通用权限管理系统组件</a> <a href="http://space.cnblogs.com/msg/send/C%23.NET%e9%80%9a%e7%94%a8%e6%9d%83%e9%99%90%e7%ae%a1%e7%90%86%e7%b3%bb%e7%bb%9f%e7%bb%84%e4%bb%b6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141768" class="layer">#2楼</a><a name="2141768" id="comment_anchor_2141768"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141768" class="blog_comment_body">学习学习</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141768,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141768,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 15:04</span> | <a id="a_comment_author_2141768" href="http://home.cnblogs.com/u/312569/" target="_blank">锋仔0</a> <a href="http://space.cnblogs.com/msg/send/%e9%94%8b%e4%bb%940" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141769" class="layer">#3楼</a><a name="2141769" id="comment_anchor_2141769"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141769" class="blog_comment_body"><fieldset class="comment_quote"><legend><a href="#2141768" title="查看引用原文">引用</a></legend>锋仔0：学习学习</fieldset><br>嘿嘿</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141769,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141769,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 15:04</span> | <a id="a_comment_author_2141769" href="http://home.cnblogs.com/u/312569/" target="_blank">锋仔0</a> <a href="http://space.cnblogs.com/msg/send/%e9%94%8b%e4%bb%940" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141774" class="layer">#4楼</a><a name="2141774" id="comment_anchor_2141774"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141774" class="blog_comment_body">请问一下怎样改变工具箱啊，就是怎样导入你上一章共享的dll呢？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141774,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141774,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 15:14</span> | <a id="a_comment_author_2141774" href="http://home.cnblogs.com/u/244215/" target="_blank">雪之无痕</a> <a href="http://space.cnblogs.com/msg/send/%e9%9b%aa%e4%b9%8b%e6%97%a0%e7%97%95" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141911" class="layer">#5楼</a><a name="2141911" id="comment_anchor_2141911"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141911" class="blog_comment_body">兄弟你的看起来比较麻烦。<br>可以参看下我的。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141911,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141911,'Bury',this)">反对(0)</a></div><span id="comment_2141911_avatar" style="display:none;">http://pic.cnitblog.com/face/u157572.jpg?id=17124711</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 21:02</span> | <a id="a_comment_author_2141911" href="http://www.cnblogs.com/huyong/" target="_blank">海南.胡勇</a> <a href="http://space.cnblogs.com/msg/send/%e6%b5%b7%e5%8d%97.%e8%83%a1%e5%8b%87" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141928" class="layer">#6楼</a><a name="2141928" id="comment_anchor_2141928"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141928" class="blog_comment_body">不错哦，支持一下。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141928,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141928,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 21:28</span> | <a id="a_comment_author_2141928" href="http://www.cnblogs.com/xiaofu915/" target="_blank">Xiaofu915</a> <a href="http://space.cnblogs.com/msg/send/Xiaofu915" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141940" class="layer">#7楼</a><a name="2141940" id="comment_anchor_2141940"></a>[<span class="louzhu">楼主</span>]
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141940" class="blog_comment_body"><a href="#2141774" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2141774);">@</a>雪之无痕<br>具体是什么意思？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141940,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141940,'Bury',this)">反对(0)</a></div><span id="comment_2141940_avatar" style="display:none;">http://pic.cnitblog.com/face/u8867.png</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 21:47</span> | <a id="a_comment_author_2141940" href="http://www.cnblogs.com/wuhuacong/" target="_blank">伍华聪</a> <a href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2141941" class="layer">#8楼</a><a name="2141941" id="comment_anchor_2141941"></a>[<span class="louzhu">楼主</span>]
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2141941" class="blog_comment_body"><fieldset class="comment_quote"><legend><a href="#2141911" title="查看引用原文">引用</a></legend>海南.胡勇：<br>兄弟你的看起来比较麻烦。<br>可以参看下我的。</fieldset><br>很多设置项目，但只是需要设置一部分即可，并不是简单就好，控件已经集成很多功能了。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2141941,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2141941,'Bury',this)">反对(0)</a></div><span id="comment_2141941_avatar" style="display:none;">http://pic.cnitblog.com/face/u8867.png</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-03 21:48</span> | <a id="a_comment_author_2141941" href="http://www.cnblogs.com/wuhuacong/" target="_blank">伍华聪</a> <a href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2143909" class="layer">#9楼</a><a name="2143909" id="comment_anchor_2143909"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2143909" class="blog_comment_body">分页的图呢？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2143909,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2143909,'Bury',this)">反对(0)</a></div><span id="comment_2143909_avatar" style="display:none;">http://pic.cnitblog.com/face/u79428.gif</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-05 22:05</span> | <a id="a_comment_author_2143909" href="http://www.cnblogs.com/longware/" target="_blank">longware</a> <a href="http://space.cnblogs.com/msg/send/longware" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2144045" class="layer">#10楼</a><a name="2144045" id="comment_anchor_2144045"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2144045" class="blog_comment_body">这个你应该搞个图上来看看，不然看不到效果，也不好评价，不过代码写的还比较整齐，至少看的不让人厌烦。<br></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2144045,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2144045,'Bury',this)">反对(0)</a></div><span id="comment_2144045_avatar" style="display:none;">http://pic.cnitblog.com/face/u136497.jpg</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-06 08:45</span> | <a id="a_comment_author_2144045" href="http://www.cnblogs.com/youshan/" target="_blank">Code Ambassador</a> <a href="http://space.cnblogs.com/msg/send/Code+Ambassador" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2144353" class="layer">#11楼</a><a name="2144353" id="comment_anchor_2144353"></a>[<span class="louzhu">楼主</span>]
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2144353" class="blog_comment_body"><a href="#2144045" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2144045);">@</a>Code Ambassador<br>@longware<br>修改呈上效果图了，谢谢关注支持。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2144353,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2144353,'Bury',this)">反对(0)</a></div><span id="comment_2144353_avatar" style="display:none;">http://pic.cnitblog.com/face/u8867.png</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-06 12:31</span> | <a id="a_comment_author_2144353" href="http://www.cnblogs.com/wuhuacong/" target="_blank">伍华聪</a> <a href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2156282" class="layer">#12楼</a><a name="2156282" id="comment_anchor_2156282"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2156282" class="blog_comment_body">问一下，您的分页控件是依赖于表格控件的吗？<br>我不能单独使用分页控件吗？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2156282,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2156282,'Bury',this)">反对(0)</a></div><span id="comment_2156282_avatar" style="display:none;">http://pic.cnitblog.com/face/u136049.gif?id=12163526</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-20 17:02</span> | <a id="a_comment_author_2156282" href="http://www.cnblogs.com/wbpmrck/" target="_blank">刺客之家</a> <a href="http://space.cnblogs.com/msg/send/%e5%88%ba%e5%ae%a2%e4%b9%8b%e5%ae%b6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2161125" class="layer">#13楼</a><a name="2161125" id="comment_anchor_2161125"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2161125" class="blog_comment_body">请教楼主一个问题，假如做单表的录入，其中数据项比较多，且需要用到下拉框什么的，您是怎么做的？<br>通常的做法是为每个表单编写窗体类，拖放控件，设置一些属性，做格式检查等等，但是我发现这样做非常耗时间，不知道您有什么高见呢？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2161125,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2161125,'Bury',this)">反对(0)</a></div><span id="comment_2161125_avatar" style="display:none;">http://pic.cnitblog.com/face/u136049.gif?id=12163526</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-26 15:06</span> | <a id="a_comment_author_2161125" href="http://www.cnblogs.com/wbpmrck/" target="_blank">刺客之家</a> <a href="http://space.cnblogs.com/msg/send/%e5%88%ba%e5%ae%a2%e4%b9%8b%e5%ae%b6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2161678" class="layer">#14楼</a><a name="2161678" id="comment_anchor_2161678"></a>[<span class="louzhu">楼主</span>]
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2161678" class="blog_comment_body"><a href="#2161125" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2161125);">@</a>刺客之家<br>基本上也需要处理这些事情，不过封装良好的基类，可以减少一些工作</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2161678,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2161678,'Bury',this)">反对(0)</a></div><span id="comment_2161678_avatar" style="display:none;">http://pic.cnitblog.com/face/u8867.png</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-07-27 08:51</span> | <a id="a_comment_author_2161678" href="http://www.cnblogs.com/wuhuacong/" target="_blank">伍华聪</a> <a href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2167542" class="layer">#15楼</a><a name="2167542" id="comment_anchor_2167542"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2167542" class="blog_comment_body">好文章<br>顶一个</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2167542,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2167542,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-08-03 11:24</span> | <a id="a_comment_author_2167542" href="http://www.cnblogs.com/nevergiveupblog/" target="_blank">小丿blog</a> <a href="http://space.cnblogs.com/msg/send/%e5%b0%8f%e4%b8%bfblog" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2173178" class="layer">#16楼</a><a name="2173178" id="comment_anchor_2173178"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2173178" class="blog_comment_body"><a href="#2167542" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2167542);">@</a>小丿blog<br>IList&lt;Person&gt; persons = new List&lt;Person&gt;();<br>...<br>persons.add(person);<br>winGridViewPager1.DataSource = persons;<br>当person有属性为null时，未处理的“System.NullReferenceException”类型的异常出现在 WHC.Pager.WinControl.dll 中；<br>把null改为""时，正常显示。<br>是设计成这样吗，仅在WinGridViewPager这样；<br>WinGridView是正常的</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2173178,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2173178,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-08-10 10:34</span> | <a id="a_comment_author_2173178" href="http://home.cnblogs.com/u/245399/" target="_blank">gg213</a> <a href="http://space.cnblogs.com/msg/send/gg213" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2232244" class="layer">#17楼</a><a name="2232244" id="comment_anchor_2232244"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2232244" class="blog_comment_body">搞了半天还是个未注册版本，要注册你就早说嘛。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2232244,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2232244,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2011-11-01 09:35</span> | <a id="a_comment_author_2232244" href="http://home.cnblogs.com/u/99875/" target="_blank">Ever_hua</a> <a href="http://space.cnblogs.com/msg/send/Ever_hua" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2259585" class="layer">#18楼</a><a name="2259585" id="comment_anchor_2259585"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2259585" class="blog_comment_body">未注册  真晕....................</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2259585,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2259585,'Bury',this)">反对(0)</a></div><span id="comment_2259585_avatar" style="display:none;">http://pic.cnitblog.com/face/161701/20130607155225.png</span>
+				<div class="postfoot">
+					 <span class="comment_date">2011-12-02 15:55</span> | <a id="a_comment_author_2259585" href="http://www.cnblogs.com/ganler1988/" target="_blank">Faith_Ganler_lulu</a> <a href="http://space.cnblogs.com/msg/send/Faith_Ganler_lulu" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2327553" class="layer">#19楼</a><a name="2327553" id="comment_anchor_2327553"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2327553" class="blog_comment_body">老大，我用你的WHC.Pager.WinControl.dll分页控件，写了this.winGridViewPager1.OnEndExport += new EventHandler(winGridViewPager1_OnEndExport);<br>在事件里面写了<br>            string where = GetSearchSql();<br>            this.winGridViewPager1.AllToExport = FindToDataTable(where, this.winGridViewPager1.PagerInfo);<br>我跟踪了一下，FindToDataTable返回了数据的，结果没有导出数据，那个EXCEL文件也没有创建，不晓得是哪个地方出了问题，你的那个例子导出当前页没有创建文件，而导出全部数据只导出了当前页的数据，如何区分是导出当前页还是全部数据呢？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2327553,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2327553,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2012-03-10 22:06</span> | <a id="a_comment_author_2327553" href="http://home.cnblogs.com/u/158148/" target="_blank">东王</a> <a href="http://space.cnblogs.com/msg/send/%e4%b8%9c%e7%8e%8b" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2327563" class="layer">#20楼</a><a name="2327563" id="comment_anchor_2327563"></a>[<span class="louzhu">楼主</span>]
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2327563" class="blog_comment_body"><a href="#2327553" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2327553);">@</a>东王<br>这个是测试评估版本的问题，正式购买的版本不会。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2327563,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2327563,'Bury',this)">反对(0)</a></div><span id="comment_2327563_avatar" style="display:none;">http://pic.cnitblog.com/face/u8867.png</span>
+				<div class="postfoot">
+					 <span class="comment_date">2012-03-10 22:27</span> | <a id="a_comment_author_2327563" href="http://www.cnblogs.com/wuhuacong/" target="_blank">伍华聪</a> <a href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2617578" class="layer">#21楼</a><a name="2617578" id="comment_anchor_2617578"></a>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2617578" class="blog_comment_body"><a href="#2141774" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2141774);">@</a>雪之无痕<br>工具栏右键，选择项，浏览，找到dll</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2617578,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2617578,'Bury',this)">反对(0)</a></div><span id="comment_2617578_avatar" style="display:none;">http://pic.cnitblog.com/face/u264644.jpg</span>
+				<div class="postfoot">
+					 <span class="comment_date">2013-02-17 14:48</span> | <a id="a_comment_author_2617578" href="http://www.cnblogs.com/moshenks/" target="_blank">默默熊</a> <a href="http://space.cnblogs.com/msg/send/%e9%bb%98%e9%bb%98%e7%86%8a" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+			<div class="post">
+				<h2>
+					<a href="#2718843" class="layer">#22楼</a><a name="2718843" id="comment_anchor_2718843"></a><span id="comment-maxId" style="display:none;">2718843</span><span id="comment-maxDate" style="display:none;">2013/7/3 9:57:06</span>
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</h2>
+				<div id="comment_body_2718843" class="blog_comment_body">伍老师，为什么控件会报错</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2718843,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2718843,'Bury',this)">反对(0)</a></div>
+				<div class="postfoot">
+					 <span class="comment_date">2013-07-03 09:57</span> | <a id="a_comment_author_2718843" href="http://home.cnblogs.com/u/535695/" target="_blank">tangrc</a> <a href="http://space.cnblogs.com/msg/send/tangrc" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+				</div>
+			</div>
+		
+</div>
+<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.cnblogs.com/" target="_blank" title="程序员的网上家园">博客园首页</a><a href="http://q.cnblogs.com/" target="_blank" title="程序员问答社区">博问</a><a href="http://news.cnblogs.com/" target="_blank" title="IT新闻">新闻</a><a href="http://home.cnblogs.com/ing/" target="_blank">闪存</a><a href="http://job.cnblogs.com/" target="_blank">程序员招聘</a><a href="http://kb.cnblogs.com/" target="_blank">知识库</a></div>
+<div id="ad_under_post_holder">
+
+<div id="google_ad_c1" class="c_ad_block">
+    <!-- cnblogs_blogpost_C1_sitehome -->
+    <div id="div-gpt-ad-1346480159711-0" style="width: 300px; height: 250px;">
+    
+    <div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" scrolling="no" width="300" frameborder="0" height="250"></iframe></div><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom; visibility: hidden; display: none;" marginheight="0" marginwidth="0" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" scrolling="no" width="0" frameborder="0" height="0"></iframe></div>
+</div>
+<div id="blog_news_kb"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/194573/" target="_blank">可穿戴技术设计10大原则</a><br> ·  <a href="http://news.cnblogs.com/n/194572/" target="_blank">更加智能化的世界，由 Wolfram Language 打造</a><br> ·  <a href="http://news.cnblogs.com/n/194571/" target="_blank">iPhone 5又漏电了 客服：这是静电</a><br> ·  <a href="http://news.cnblogs.com/n/194570/" target="_blank">感恩节PayPal移动购物总额同比增长91%</a><br> ·  <a href="http://news.cnblogs.com/n/194569/" target="_blank">微软批完苹果又批三星</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/112298/" target="_blank">领域驱动设计和实践</a><br> ·  <a href="http://kb.cnblogs.com/page/181283/" target="_blank">编码风格不是编码规范</a><br> ·  <a href="http://kb.cnblogs.com/page/191938/" target="_blank">对于现代开发来说，Javascript就是一种垃圾语言</a><br> ·  <a href="http://kb.cnblogs.com/page/193913/" target="_blank">教你一眼认出英语单词的意思</a><br> ·  <a href="http://kb.cnblogs.com/page/193912/" target="_blank">数学之美</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div></div>
+<script type="text/javascript">
+var enableGoogleAd = true;
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+fixPostBodyFormat();
+loadAdUnderPost();
+</script>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+loadBlogSignature();
+LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+</script>
+<script type="text/javascript">
+    $.ajax({ url: 'http://counter.cnblogs.com/blog/post/' + cb_entryId, type: 'get', dataType: 'script', cache: true });
+</script>
+</div>
+
+</div>
+</div>
+<div id="leftmenu">
+
+
+<h3>导航</h3>
+<ul>
+<li>
+<a id="MyLinks1_HomeLink" href="http://www.cnblogs.com/">博客园</a></li>
+<li>
+<a id="MyLinks1_MyHomeLink" class="two_words" href="http://www.cnblogs.com/wuhuacong/">首页</a></li>
+<li>
+<a id="MyLinks1_NewPostLink" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/admin/EditPosts.aspx?opt=1">新随笔</a></li>
+<li>
+<a id="MyLinks1_ContactLink" accesskey="9" class="two_words" rel="nofollow" href="http://space.cnblogs.com/msg/send/%e4%bc%8d%e5%8d%8e%e8%81%aa">联系</a></li>
+<li>
+<a id="MyLinks1_Syndication" class="two_words" href="http://www.cnblogs.com/wuhuacong/rss">订阅</a>
+<a id="MyLinks1_XMLLink" href="http://www.cnblogs.com/wuhuacong/rss"><img src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/xml.gif" alt="订阅"></a>
+</li>
+<li>
+<a id="MyLinks1_Admin" class="two_words" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/admin/EditPosts.aspx">管理</a></li>
+</ul>
+
+<div id="blog-calendar-block" style=""><div id="blog-calendar"><table id="blogCalendar" class="Cal" title="日历" cellpadding="0" cellspacing="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2011/06/01');return false;">&lt;</a></td><td align="center">2011年7月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2011/08/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td align="center">1</td><td class="CalWeekendDay" align="center">2</td></tr><tr><td class="CalWeekendDay" align="center"><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/03.html"><u>3</u></a></td><td align="center"><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/04.html"><u>4</u></a></td><td align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td class="CalWeekendDay" align="center"><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/09.html"><u>9</u></a></td></tr><tr><td class="CalWeekendDay" align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td class="CalWeekendDay" align="center">16</td></tr><tr><td class="CalWeekendDay" align="center">17</td><td align="center">18</td><td align="center"><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/19.html"><u>19</u></a></td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td class="CalWeekendDay" align="center">23</td></tr><tr><td class="CalWeekendDay" align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td class="CalWeekendDay" align="center"><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/30.html"><u>30</u></a></td></tr><tr><td class="CalWeekendDay" align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td></tr>
+</tbody></table></div>
+</div>
+<meta name="vs_showGrid" content="False">
+
+<h3>公告</h3>
+<div id="blog-news"><a style="padding-right:20px;" href="http://wpa.qq.com/msgrd?v=3&amp;uin=6966254&amp;site=qq&amp;menu=yes" target="_blank"><img style="vertical-align:bottom; border:0px" src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pa.gif" alt="点击这里给我发消息"></a><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/wuhuacong/">伍华聪</a><br>园龄：<a href="http://home.cnblogs.com/u/wuhuacong/" title="入园时间：2005-06-30">8年5个月</a><br>荣誉：<a href="http://www.cnblogs.com/expert/">推荐博客</a><br>粉丝：<a href="http://home.cnblogs.com/u/wuhuacong/followers/">2053</a><br>关注：<a href="http://home.cnblogs.com/u/wuhuacong/followees/">47</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger('689f310b-63cf-dd11-9e4d-001cf0cd104b')">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+
+<div id="blog-sidecolumn">
+
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk" type="text">&nbsp;<input onclick="zzk_go()" value="找找看" id="btnZzk" class="btn_my_zzk" type="button"></div>
+
+</div>
+
+
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+
+		<li><a id="ctl01_rptMainLinks_lnkLinkItem_0" href="http://www.cnblogs.com/wuhuacong/MyPosts.html">我的随笔</a></li>
+	
+		<li><a id="ctl01_rptMainLinks_lnkLinkItem_1" href="http://www.cnblogs.com/wuhuacong/MyComments.html">我的评论</a></li>
+	
+		<li><a id="ctl01_rptMainLinks_lnkLinkItem_2" title="我发表过评论的随笔" href="http://www.cnblogs.com/wuhuacong/OtherPosts.html">我的参与</a></li>
+	
+		<li><a id="ctl01_rptMainLinks_lnkLinkItem_3" href="http://www.cnblogs.com/wuhuacong/RecentComments.html">最新评论</a></li>
+	
+		<li><a id="ctl01_rptMainLinks_lnkLinkItem_4" href="http://www.cnblogs.com/wuhuacong/tag/">我的标签</a></li>
+	
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div>
+<h3 class="catListTitle">最新随笔</h3>
+<div class="RecentComment" id="RecentPosts">
+<ul style="word-break:break-all">
+<li><a href="http://www.cnblogs.com/wuhuacong/p/3446168.html">1. 在GridView列表中使用图片显示记录是否包含附件</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3435297.html">2. Winform开发框架之客户关系管理系统(CRM)的开发总结系列4-Tab控件页面的动态加载</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3434641.html">3. Winform开发框架之客户关系管理系统(CRM)的开发总结系列3-客户分类和配置管理实现</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3434321.html">4. Winform开发框架之客户关系管理系统(CRM)的开发总结系列2-基于框架的开发过程</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3422279.html">5. Winform开发框架之客户关系管理系统(CRM)的开发总结系列1-界面功能展示</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3420309.html">6. 利用代码生成工具Database2Sharp设计数据编辑界面</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3417043.html">7. 脊柱外科病人资料管理系统的界面设计分析(2)--JOA评分记录的实现</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3416868.html">8. 脊柱外科病人资料管理系统的界面设计分析</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3409596.html">9. Winform开发框架之通用数据导入导出操作的事务性操作完善</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3409326.html">10. Winform开发框架的业务对象统一调用方式</a></li>
+</ul>
+</div>
+
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/wuhuacong/tag/%E5%BC%80%E5%8F%91%E8%BE%85%E5%8A%A9/">开发辅助</a>(67)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/WinForm%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/">WinForm界面开发</a>(45)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/Winform%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">Winform开发框架</a>(45)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/%E5%85%B1%E4%BA%AB%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%BA%A4%E6%B5%81/">共享软件开发交流</a>(34)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/">代码生成工具</a>(33)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/Visio%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/">Visio二次开发</a>(24)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/%E5%85%AC%E7%94%A8%E7%B1%BB%E5%BA%93%E4%BD%BF%E7%94%A8%E5%B8%AE%E5%8A%A9/">公用类库使用帮助</a>(14)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/WCF%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">WCF开发框架</a>(13)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">Web开发框架</a>(13)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6/">分页控件</a>(9)</li><li><a href="http://www.cnblogs.com/wuhuacong/tag/">更多</a></li>
+</ul>
+</div>
+		<h3>随笔档案<span style="font-size:11px;font-weight:normal">(294)</span></h3>
+		
+				<ul>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/wuhuacong/archive/2013/11.html">2013年11月 (11)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/wuhuacong/archive/2013/10.html">2013年10月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/wuhuacong/archive/2013/09.html">2013年9月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/wuhuacong/archive/2013/08.html">2013年8月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/wuhuacong/archive/2013/07.html">2013年7月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/wuhuacong/archive/2013/06.html">2013年6月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/wuhuacong/archive/2013/05.html">2013年5月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/wuhuacong/archive/2013/04.html">2013年4月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/wuhuacong/archive/2013/03.html">2013年3月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/wuhuacong/archive/2013/02.html">2013年2月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/wuhuacong/archive/2013/01.html">2013年1月 (6)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/wuhuacong/archive/2012/12.html">2012年12月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_12" href="http://www.cnblogs.com/wuhuacong/archive/2012/11.html">2012年11月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_13" href="http://www.cnblogs.com/wuhuacong/archive/2012/10.html">2012年10月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_14" href="http://www.cnblogs.com/wuhuacong/archive/2012/09.html">2012年9月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_15" href="http://www.cnblogs.com/wuhuacong/archive/2012/08.html">2012年8月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_16" href="http://www.cnblogs.com/wuhuacong/archive/2012/07.html">2012年7月 (7)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_17" href="http://www.cnblogs.com/wuhuacong/archive/2012/06.html">2012年6月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_18" href="http://www.cnblogs.com/wuhuacong/archive/2012/05.html">2012年5月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_19" href="http://www.cnblogs.com/wuhuacong/archive/2012/04.html">2012年4月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_20" href="http://www.cnblogs.com/wuhuacong/archive/2012/03.html">2012年3月 (7)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_21" href="http://www.cnblogs.com/wuhuacong/archive/2012/02.html">2012年2月 (6)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_22" href="http://www.cnblogs.com/wuhuacong/archive/2012/01.html">2012年1月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_23" href="http://www.cnblogs.com/wuhuacong/archive/2011/12.html">2011年12月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_24" href="http://www.cnblogs.com/wuhuacong/archive/2011/11.html">2011年11月 (6)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_25" href="http://www.cnblogs.com/wuhuacong/archive/2011/10.html">2011年10月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_26" href="http://www.cnblogs.com/wuhuacong/archive/2011/09.html">2011年9月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_27" href="http://www.cnblogs.com/wuhuacong/archive/2011/08.html">2011年8月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_28" href="http://www.cnblogs.com/wuhuacong/archive/2011/07.html">2011年7月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_29" href="http://www.cnblogs.com/wuhuacong/archive/2011/06.html">2011年6月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_30" href="http://www.cnblogs.com/wuhuacong/archive/2011/05.html">2011年5月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_31" href="http://www.cnblogs.com/wuhuacong/archive/2011/04.html">2011年4月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_32" href="http://www.cnblogs.com/wuhuacong/archive/2011/03.html">2011年3月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_33" href="http://www.cnblogs.com/wuhuacong/archive/2011/02.html">2011年2月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_34" href="http://www.cnblogs.com/wuhuacong/archive/2011/01.html">2011年1月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_35" href="http://www.cnblogs.com/wuhuacong/archive/2010/12.html">2010年12月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_36" href="http://www.cnblogs.com/wuhuacong/archive/2010/11.html">2010年11月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_37" href="http://www.cnblogs.com/wuhuacong/archive/2010/09.html">2010年9月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_38" href="http://www.cnblogs.com/wuhuacong/archive/2010/08.html">2010年8月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_39" href="http://www.cnblogs.com/wuhuacong/archive/2010/07.html">2010年7月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_40" href="http://www.cnblogs.com/wuhuacong/archive/2010/06.html">2010年6月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_41" href="http://www.cnblogs.com/wuhuacong/archive/2010/05.html">2010年5月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_42" href="http://www.cnblogs.com/wuhuacong/archive/2010/04.html">2010年4月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_43" href="http://www.cnblogs.com/wuhuacong/archive/2010/03.html">2010年3月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_44" href="http://www.cnblogs.com/wuhuacong/archive/2010/02.html">2010年2月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_45" href="http://www.cnblogs.com/wuhuacong/archive/2010/01.html">2010年1月 (6)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_46" href="http://www.cnblogs.com/wuhuacong/archive/2009/12.html">2009年12月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_47" href="http://www.cnblogs.com/wuhuacong/archive/2009/11.html">2009年11月 (6)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_48" href="http://www.cnblogs.com/wuhuacong/archive/2009/10.html">2009年10月 (7)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_49" href="http://www.cnblogs.com/wuhuacong/archive/2009/09.html">2009年9月 (11)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_50" href="http://www.cnblogs.com/wuhuacong/archive/2009/08.html">2009年8月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_51" href="http://www.cnblogs.com/wuhuacong/archive/2009/07.html">2009年7月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_52" href="http://www.cnblogs.com/wuhuacong/archive/2009/06.html">2009年6月 (13)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_53" href="http://www.cnblogs.com/wuhuacong/archive/2009/05.html">2009年5月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_54" href="http://www.cnblogs.com/wuhuacong/archive/2009/02.html">2009年2月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_55" href="http://www.cnblogs.com/wuhuacong/archive/2009/01.html">2009年1月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_56" href="http://www.cnblogs.com/wuhuacong/archive/2008/08.html">2008年8月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_57" href="http://www.cnblogs.com/wuhuacong/archive/2008/07.html">2008年7月 (6)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_58" href="http://www.cnblogs.com/wuhuacong/archive/2008/06.html">2008年6月 (12)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_59" href="http://www.cnblogs.com/wuhuacong/archive/2008/05.html">2008年5月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_60" href="http://www.cnblogs.com/wuhuacong/archive/2008/02.html">2008年2月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_61" href="http://www.cnblogs.com/wuhuacong/archive/2008/01.html">2008年1月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_62" href="http://www.cnblogs.com/wuhuacong/archive/2007/12.html">2007年12月 (4)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_63" href="http://www.cnblogs.com/wuhuacong/archive/2007/11.html">2007年11月 (7)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_64" href="http://www.cnblogs.com/wuhuacong/archive/2007/01.html">2007年1月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_65" href="http://www.cnblogs.com/wuhuacong/archive/2006/09.html">2006年9月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_66" href="http://www.cnblogs.com/wuhuacong/archive/2006/08.html">2006年8月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_0_Link_67" href="http://www.cnblogs.com/wuhuacong/archive/2006/05.html">2006年5月 (1)</a></li>
+			
+				</ul>
+			
+	
+		<h3>文章分类<span style="font-size:11px;font-weight:normal">(16)</span></h3>
+		
+				<ul>
+			
+				<li><a id="ctl04_CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/wuhuacong/category/29487.html">开发的共享软件(16)</a></li>
+			
+				</ul>
+			
+	
+		<h3>文章档案<span style="font-size:11px;font-weight:normal">(17)</span></h3>
+		
+				<ul>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_0" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2013/10.html">2013年10月 (3)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_1" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2011/04.html">2011年4月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_2" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2010/12.html">2010年12月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_3" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2010/08.html">2010年8月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_4" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2009/11.html">2009年11月 (1)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_5" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2009/06.html">2009年6月 (5)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_6" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2006/08.html">2006年8月 (2)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_2_Link_7" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/archives/2005/06.html">2005年6月 (2)</a></li>
+			
+				</ul>
+			
+	
+		<h3>相册</h3>
+		
+				<ul>
+			
+				<li><a id="ctl04_CatList_LinkList_3_Link_0" rel="nofollow" href="http://www.cnblogs.com/wuhuacong/gallery/37741.html">MyAlbum</a></li>
+			
+				</ul>
+			
+	
+		<h3>我的好友</h3>
+		
+				<ul>
+			
+				<li><a id="ctl04_CatList_LinkList_4_Link_0" rel="nofollow" href="http://www.iqidi.com/Framework/info.html?flag=3">Winform开发框架</a></li>
+			<li class="c_b_p_link_desc">Winform开发框架功能介绍</li>
+				<li><a id="ctl04_CatList_LinkList_4_Link_1" rel="nofollow" href="http://www.cnblogs.com/jirigala" target="_blank">吉日嘎拉</a><a id="ctl04_CatList_LinkList_4_RssLink_1" href="#" onclick="return open_link('http://www.cnblogs.com/jirigala/rss');">(rss)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_4_Link_2" rel="nofollow" href="http://upto.cnblogs.com/" target="_blank">黎波(Blogs)</a><a id="ctl04_CatList_LinkList_4_RssLink_2" href="#" onclick="return open_link('http://www.cnblogs.com/upto/Rss.aspx');">(rss)</a></li>
+			
+				<li><a id="ctl04_CatList_LinkList_4_Link_3" rel="nofollow" href="http://ugoer.cnblogs.com/" target="_blank">彭斌(Blogs)</a><a id="ctl04_CatList_LinkList_4_RssLink_3" href="#" onclick="return open_link('http://ugoer.cnblogs.com/rss');">(rss)</a></li>
+			
+				</ul>
+			
+	
+		<h3>我的技术支持站点</h3>
+		
+				<ul>
+			
+				<li><a id="ctl04_CatList_LinkList_5_Link_0" rel="nofollow" href="http://www.iqidi.com/database2sharp.htm" target="_blank">Database2Sharp下载</a></li>
+			<li class="c_b_p_link_desc">代码自动生成和数据库文档的利器</li>
+				<li><a id="ctl04_CatList_LinkList_5_Link_1" rel="nofollow" href="http://www.iqidi.com/" target="_blank">广州爱奇迪</a></li>
+			<li class="c_b_p_link_desc">提供个人共享软件、技术文章、技术支持等信息</li>
+				</ul>
+			
+	
+<h3>积分与排名</h3>
+<ul>
+	<li>
+		积分 -
+		925699
+	</li><li>
+		排名 -
+		47
+	</li>
+</ul>
+
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/wuhuacong/p/3446168.html#2827900">1. Re:在GridView列表中使用图片显示记录是否包含附件</a></li>
+    <li class="recent_comment_body">博主能写一些 winform项目的 mvp开发模式么</li>
+    <li class="recent_comment_author">--悲夢</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/wuhuacong/p/3435297.html#2824306">2. Re:Winform开发框架之客户关系管理系统(CRM)的开发总结系列4-Tab控件页面的动态加载</a></li>
+    <li class="recent_comment_body">聪哥，小弟想向你请教一个问题。<br>你的仓库管理系统里，入库单、出库单为什么没有删除功能，如果录入错误的话，怎么处理？还有，提供的程序缺少盘点的功能，正常来说，这是仓库管理系统必须的功能哦。</li>
+    <li class="recent_comment_author">--cmProgrammer</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/wuhuacong/p/3420309.html#2824175">3. Re:利用代码生成工具Database2Sharp设计数据编辑界面</a></li>
+    <li class="recent_comment_body">最近忙，顶晚了。</li>
+    <li class="recent_comment_author">--上帝之城</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/wuhuacong/archive/2013/01/27/2878368.html#2822889">4. Re:DevExpress控件使用之RichEditControl的使用</a></li>
+    <li class="recent_comment_body">MailInfo info = new MailInfo();  C#中 怎么诶有啊？<br><br><br>我用的是 MailMessage <br><br>但是 MailMessage   没有EmbedObjects.</li>
+    <li class="recent_comment_author">--梓骏</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/wuhuacong/p/3434321.html#2822464">5. Re:Winform开发框架之客户关系管理系统(CRM)的开发总结系列2-基于框架的开发过程</a></li>
+    <li class="recent_comment_body">@通用C#系统架构引用一直能坚持，很不容易！顶一下。要说坚持，怕是没有人能跟吉日兄抢这两个字？？加油！！</li>
+    <li class="recent_comment_author">--无待</li>
+</ul>
+</div>
+</div>
+
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/wuhuacong/archive/2009/07/09/1520082.html">1. WinForm界面开发之布局控件"WeifenLuo.WinFormsUI.Docking"的使用(39359)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/08/31/2161002.html">2. DevExpress控件使用经验总结(38770)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/01/22/1654021.html">3. 推荐两个界面原型设计工具--GUIDesignStudio 和 Mockups For Desktop(24952)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/03/26/1697005.html">4. 淘宝API开发系列--商家的绑定(21300)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/06/30/2095080.html">5. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（1）----开篇总结(20849)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/05/08/2040620.html">6. Winform开发框架之权限管理系统(20178)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2012/05/10/2494957.html">7. 合理的布局，绚丽的样式，谈谈Winform程序的界面设计(19537)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/03/19/1690240.html">8. 淘宝API开发系列--开篇概述(19283)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/06/19/2084617.html">9. Winform开发框架之Office Ribbon界面(19182)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2009/07/07/1518730.html">10. WinForm界面开发之“分页控件”(18580)</a></li></ul></div>
+</div>
+
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/30/2121829.html">1. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（4）----CSV、Excel、INI文件、独立存储等文件相关(181)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/06/30/2095080.html">2. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（1）----开篇总结(169)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2012/03/27/2418822.html">3. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（12）--- 网络相关操作辅助类(116)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/12/03/2274493.html">4. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（9）----各种常用辅助类(85)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/05/31/1748579.html">5. 吉日嘎啦通用权限管理系统解读及重构升华--高度封装的编辑窗体(84)</a></li></ul></div>
+</div>
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/06/30/2095080.html">1. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（1）----开篇总结(60)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2013/02/17/2914614.html">2. 厚积薄发，丰富的公用类库积累，助你高效进行系统开发（14）---Winform开发的常用类库（终结篇，CHM文档放送）(33)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/11/24/1886209.html">3. 如何使用C#实现QQ号码的申请(32)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/05/31/1748579.html">4. 吉日嘎啦通用权限管理系统解读及重构升华--高度封装的编辑窗体(30)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/03/19/1988730.html">5. Winform开发几个常用的开发经验及知识积累（一）(29)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/p/3199829.html">6. Winform开发框架的重要特性总结(27)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2010/01/25/1655916.html">7. 用户输入查询与拼音首字母的结合，提高用户的操作体验(25)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/07/19/2111055.html">8. C#开发串口总结，并提炼串口辅助类到公用类库中(23)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2011/05/08/2040620.html">9. Winform开发框架之权限管理系统(23)</a></li><li><a href="http://www.cnblogs.com/wuhuacong/archive/2013/04/15/3022011.html">10. Web开发常见的几个漏洞解决方法(23)</a></li></ul></div>
+</div></div><script type="text/javascript">loadBlogSideColumn();</script>
+
+</div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+
+<p id="footer">
+	Powered by: 
+	<br>
+	
+	<a id="Footer1_Hyperlink3" name="Hyperlink1" href="http://www.cnblogs.com/" style="font-family:Verdana;font-size:12px;">博客园</a>
+	<br>
+	Copyright © 伍华聪
+</p>
+</div>
+</div>
+
+<script type="text/javascript" src="Winform%E5%88%86%E9%A1%B5%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%20-%20%E4%BC%8D%E5%8D%8E%E8%81%AA%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/google-analytics.js"></script>
+
+
+<iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_5211535406133"></iframe></body></html>
