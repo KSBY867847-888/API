@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Pages/Home.vue'
-
+import GaoDeMap from '../views/Pages/GaoDeMap.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -9,6 +9,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/GaoDeMap',
+    name: 'GaoDeMap',
+    component: GaoDeMap
   },
   {
     path: '/about',
